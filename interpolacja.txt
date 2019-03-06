@@ -1,0 +1,94 @@
+#include<iostream>
+using namespace std;
+
+
+struct punkt {
+	double x;
+	double y;
+
+
+};
+
+
+
+
+void szukaj(punkt *tab, double x,double size)
+{
+	double suma = 0;
+	double temp = 1;
+	double l = 1;
+	double *tab2= new double[size];
+
+
+	for (int i = 0; i < size; i++)
+	{
+
+
+		for (int j = 0; j < size; j++)
+		{
+			if (j != i)
+			{
+				temp = ((x - tab[j].x) / (tab[i].x - tab[j].x));
+
+				
+			
+					l = l*temp;
+			}
+			
+		}
+		
+
+		tab2[i] = l;
+
+		l = 1;
+
+
+		
+
+
+	}
+
+
+
+	double wynik=0;
+
+
+
+	for (int i = 0; i < size; i++)
+	{
+		wynik = wynik + (tab[i].y*tab2[i]);
+
+
+
+	}
+	cout << "wynik to =" << wynik << endl;
+	system("pause");
+}
+
+
+
+int main()
+{
+	
+	double x,y;
+	cout << "podaj szukany punkt\n";
+	cin >> x;
+	int size;
+	cout << " how many points\n";
+	cin >> size;
+	punkt* tab = new punkt[size];
+	cout << "what points\n";
+	for (int i = 0; i < size; i++)
+	{
+		cin >> tab[i].x >> tab[i].y;
+
+
+	}
+	szukaj(tab, x, size);
+
+
+
+
+
+	return 0;
+}
