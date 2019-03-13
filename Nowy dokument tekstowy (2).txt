@@ -1,0 +1,66 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+
+class punkt{
+	
+public:
+	 
+	 double x;
+	 double y;
+	 int n;
+};
+
+double oblicz(punkt* punkty,int indeks ,int licznik)
+{
+	if (licznik == 1)
+		return punkty[indeks].y;
+	if (licznik == 2)
+		return (punkty[indeks + 1].y - punkty[indeks].y) / (punkty[indeks + 1].x - punkty[indeks].x);
+	
+	return oblicz(punkty, indeks + 1, licznik - 1) - oblicz(punkty, indeks, licznik - 1) / (punkty[indeks + 1].x - punkty[indeks].x);
+
+}
+
+double b(punkt *punkty, int n,double x)
+{
+	double wielomian = 0;
+	double p = 1;
+	for (int i; i < n; i++)
+	{
+		p = p*(x - punkty[i].x);
+
+
+	}
+
+
+}
+
+void wypisz(punkt *punkty, int n)
+{
+	cout << "Wx=";
+	for (int i = 0; i < n; i++)
+	{
+
+	}
+}
+
+
+int main()
+{
+	int n=5;
+	//cin >> n;
+	punkt * tab = new punkt[n];
+	tab[0].x = 0; tab[0].y = 0;
+	tab[1].x = 2; tab[0].y = 8;
+	tab[2].x = 3; tab[0].y = 27;
+	tab[3].x = 5; tab[0].y = 125;
+	tab[4].x = 6; tab[0].y = 216;
+	
+	oblicz(tab,n);
+	system("pause");
+
+
+	return 0;
+}
